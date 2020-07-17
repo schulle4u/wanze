@@ -1,0 +1,1 @@
+http://stream.example.com:8000/outside.mp3
