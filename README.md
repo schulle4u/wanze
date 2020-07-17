@@ -1,4 +1,4 @@
 # Wanze
-Liquidsoap scripts for soundcard/microphone input
+Miscellanious code for soundcard/microphone input
 
-This repository contains [liquidsoap scripts](https://www.liquidsoap.info), and other relevant configuration files for an open microphones project. 
+This repository contains configuration and other relevant files used for an outside microphones project. They of course can be customized for related projects. 
