@@ -19,31 +19,30 @@ $timeFormat = date("H")."-00";
 <head>
 <title>Stream Download</title>
 <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
 <div class="content">
 <h1>Stream Download</h1>
-<div class="notes">
-<p>Please select the desired file from the form below and press the download button.</p>
-</div>
+<p class="notes">Please select the desired file from the form below and press the download button.</p>
 <div class="download">
 <form name="download" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" target="_blank">
 <?php
 if (empty($streamList)) {
-    echo "<label for=\"stream\">Stream:</label> <input id=\"stream\" name=\"stream\" type=\"text\"><br />";
+    echo "<p><label for=\"stream\">Stream:</label><br /><input id=\"stream\" name=\"stream\" type=\"text\" /></p>";
 } else {
-    echo "<label for=\"stream\">Stream:</label> ";
+    echo "<p><label for=\"stream\">Stream:</label><br />";
     echo "<select id=\"stream\" name=\"stream\">";
     $streams = array_map("trim", explode(",", $streamList));
     foreach ($streams as $stream) {
         echo "<option value =\"".$stream."\">".ucfirst($stream)."</option>";
     }
-    echo "</select><br />";
+    echo "</select></p>";
 }
 ?>
-<label for="date">Date:</label> <input id="date" name="date" type="text" value="<?php echo $dateFormat; ?>"><br />
-<label for="time">Time:</label> <input id="time" name="time" type="text" value="<?php echo $timeFormat; ?>"><br />
-<input name="download" type="submit" value="Download">
+<p><label for="date">Date:</label><br /><input id="date" name="date" type="text" value="<?php echo $dateFormat; ?>" /></p>
+<p><label for="time">Time:</label><br /><input id="time" name="time" type="text" value="<?php echo $timeFormat; ?>" /></p>
+<input name="download" type="submit" value="Download" />
 <?php
 if(isset($_POST['download'])) {
     $stream = $_POST['stream'];
@@ -51,8 +50,9 @@ if(isset($_POST['download'])) {
     $time = $_POST['time'];
     if($stream !='' && $date != '' && $time != '') {
         header("Location:{$mediaBase}{$stream}-{$date}_{$time}.mp3");
+        exit;
     } else {
-        echo "Please fill all fields!";
+        echo "<p class=\"error\">Please fill all fields!</p>";
     }
 }
 ?>
