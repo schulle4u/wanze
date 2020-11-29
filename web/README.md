@@ -9,7 +9,7 @@ For this script to work The audio files have to be web-accessible. You can place
 Open `download.php` and customize the following settings if needed. 
 
 * `mediaBase` = the URL or location where your audio files are stored (default: `/` (current directory)).
-* `streamList` = a comma-separated list of stream names, usefull to select predefined stream file prefixes from your archive. The stream name is the first part of the audio file name. Leave blank to display an input field instead.
+* `streamList` = an array of stream names and URLs, useful to select predefined stream file prefixes from your archive and to enable stream monitoring. The stream name is the first part of the audio file name. Leave blank to display an input field instead.
 * `dateFormat` and `timeFormat` = Represents the time-related parts of your archive file names. By default the fields are pre-filled with the current day and hour. 
 
 ## How to download an audio file

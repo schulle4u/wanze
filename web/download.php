@@ -7,8 +7,10 @@
 // The root URL for your stream rips, leave default for current directory
 $mediaBase = "/";
 
-// a comma separated list of stream names, leave blank to get an input box instead
-$streamList = "";
+// An array of stream names and URLs, leave blank to get an input box instead
+$streamList = [
+    //"example" => "http://example.com:8000/stream.mp3",
+];
 
 // Date and time format  to prefill the values
 $dateFormat = date("m-d");
@@ -33,9 +35,8 @@ if (empty($streamList)) {
 } else {
     echo "<p><label for=\"stream\">Stream:</label><br />";
     echo "<select id=\"stream\" name=\"stream\">";
-    $streams = array_map("trim", explode(",", $streamList));
-    foreach ($streams as $stream) {
-        echo "<option value =\"".$stream."\">".ucfirst($stream)."</option>";
+    foreach ($streamList as $name => $url) {
+        echo "<option value =\"".$name."\">".ucfirst($name)."</option>";
     }
     echo "</select></p>";
 }
@@ -57,6 +58,17 @@ if(isset($_POST['download'])) {
 }
 ?>
 </form>
+</div>
+<div class="monitor">
+<?php
+if ($streamList) {
+    echo "<h2>Stream Monitor</h2>";
+    foreach ($streamList as $name => $url) {
+        echo "<h3>".ucfirst($name)."</h3>\n";
+        echo "<div class=\"audio\" role=\"region\" aria-label=\"".$name."\"><audio src=\"".$url."\" controls=\"controls\" preload=\"none\"></audio></div>\n";
+    }
+}
+?>
 </div>
 <div class="footer">
 <hr>
