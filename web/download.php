@@ -36,13 +36,13 @@ if (empty($streamList)) {
     echo "<p><label for=\"stream\">Stream:</label><br />";
     echo "<select id=\"stream\" name=\"stream\">";
     foreach ($streamList as $name => $url) {
-        echo "<option value =\"".$name."\">".ucfirst($name)."</option>";
+        echo "<option value =\"".htmlspecialchars($name)."\">".ucfirst(htmlspecialchars($name))."</option>";
     }
     echo "</select></p>";
 }
 ?>
-<p><label for="date">Date:</label><br /><input id="date" name="date" type="text" value="<?php echo $dateFormat; ?>" /></p>
-<p><label for="time">Time:</label><br /><input id="time" name="time" type="text" value="<?php echo $timeFormat; ?>" /></p>
+<p><label for="date">Date:</label><br /><input id="date" name="date" type="text" value="<?php echo htmlspecialchars($dateFormat); ?>" /></p>
+<p><label for="time">Time:</label><br /><input id="time" name="time" type="text" value="<?php echo htmlspecialchars($timeFormat); ?>" /></p>
 <input name="download" type="submit" value="Download" />
 <?php
 if(isset($_POST['download'])) {
@@ -64,8 +64,8 @@ if(isset($_POST['download'])) {
 if ($streamList) {
     echo "<h2>Stream Monitor</h2>";
     foreach ($streamList as $name => $url) {
-        echo "<h3>".ucfirst($name)."</h3>\n";
-        echo "<div class=\"audio\" role=\"region\" aria-label=\"".$name."\"><audio src=\"".$url."\" controls=\"controls\" preload=\"none\"></audio></div>\n";
+        echo "<h3>".ucfirst(htmlspecialchars($name))."</h3>\n";
+        echo "<div class=\"audio\" role=\"region\" aria-label=\"".htmlspecialchars($name)."\"><audio src=\"".htmlspecialchars($url)."\" controls=\"controls\" preload=\"none\"></audio></div>\n";
     }
 }
 ?>
