@@ -6,7 +6,7 @@ For this script to work The audio files have to be web-accessible. You can place
 
 ## How to configure
 
-Open `download.php` and customize the following settings if needed. 
+Open `config.php` and customize the following settings if needed. 
 
 * `mediaBase` = the URL or location where your audio files are stored (default: `/` (current directory)).
 * `streamList` = an array of stream names and URLs, useful to select predefined stream file prefixes from your archive and to enable stream monitoring. The stream name is the first part of the audio file name. Leave blank to display an input field instead.

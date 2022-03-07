@@ -7,10 +7,16 @@ set("log.file",true)
 set("log.stdout",true)
 set("log.level",2) # Increase for more exhaustive logging
 
+# Input samplerate
+set("frame.audio.samplerate",44100)
+
 # We define our input, change to your desired sound device
 stream = input.alsa(device="plughw:1,0")
 
-# Sound processing, uncomment if needed
+# Amplify the input
+# stream = amplify(2.0, stream)
+
+# Sound processing, uncomment what you like
 # stream = sky(stream)
 # stream = compress(stream, attack = 5.0, gain = 8.0, knee = 10.0, ratio = 5.0, release = 100.0, threshold = -18.0, rms_window = 0.7)
 # stream = normalize(stream, target = -1.0, threshold = -65.0)
