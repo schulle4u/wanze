@@ -1,8 +1,7 @@
 # Stream download
-A download page for audio stream archives.
+A download and monitoring page for audio stream archives.
 
-This is a simple php script to quickly download a desired stream archive file. It has been created for a microphone input project where stream archives are created for every hour of the day. It of course can be customized for similar projects, e. g. radio show archives.  
-For this script to work The audio files have to be web-accessible. You can place it into the same directory as the audio files and protect the location with a password. 
+This is a simple php script to quickly download a desired stream archive file. It has been created for a microphone input project where stream archives are created for every hour of the day. It of course can be customized for similar projects, e. g. radio show archives. For this script to work The audio files have to be web-accessible. You can place it into the same directory as the audio files and protect the location with a password. 
 
 ## How to configure
 
@@ -15,3 +14,7 @@ Open `config.php` and customize the following settings if needed.
 ## How to download an audio file
 
 Just open `download.php` in your browser and select the desired stream, date and time. Hit the download button to get the file. Your browser probably will start to play the audio, so you might have to right-click the player controls and save the file from there. 
+
+## Credits
+
+Some visual stuff: [Simple.css](https://github.com/kevquirk/simple.css) by Kev Quirk, released under MIT license. 
